@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Nofication</string>
+
+
+    <string name="channel_Medicine">Medicine app</string>
+    <string name="Medicine_content">Take your meds bro!</string>
+</resources>
