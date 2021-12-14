@@ -41,7 +41,14 @@ public class MainActivity extends AppCompatActivity implements PickerListener {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        Button medicineBtn = findViewById(R.id.medicine_page_btn);
+        medicineBtn.setOnClickListener(this::openMedicineActivity);
 
+    }
+
+    public void openMedicineActivity(View v){
+        Intent intent = new Intent(this, MedicineActivity.class);
+        startActivity(intent);
     }
 
     @Override
