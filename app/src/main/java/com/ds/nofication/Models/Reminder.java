@@ -1,2 +1,4 @@
-package com.ds.nofication.Models;public class Reminder {
+package com.ds.nofication.Models;
+
+public class Reminder {
 }

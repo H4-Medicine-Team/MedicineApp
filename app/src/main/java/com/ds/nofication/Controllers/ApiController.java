@@ -1,2 +1,4 @@
-package com.ds.nofication.Controllers;public class ApiController {
+package com.ds.nofication.Controllers;
+
+public class ApiController {
 }
