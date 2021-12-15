@@ -1,10 +1,10 @@
-package com.ds.nofication.Interfaces;
+package com.ds.nofication.Listeners;
 
 import com.ds.nofication.Models.Reminder;
 
 import java.util.ArrayList;
 
-public interface ReminderListListener {
+public interface ReminderListener {
     public void update(ArrayList<Reminder> reminders);
     public void errorUpdate(String errorMessage);
 }

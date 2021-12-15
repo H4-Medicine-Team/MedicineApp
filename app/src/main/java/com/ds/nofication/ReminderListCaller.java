@@ -8,30 +8,27 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
-import com.ds.nofication.Interfaces.ReminderCallback;
+import com.ds.nofication.Interfaces.Callbackable;
 import com.google.gson.Gson;
-
-import java.util.HashMap;
-import java.util.Map;
 
 public class ReminderListCaller implements Response.Listener, Response.ErrorListener {
 
-    ReminderCallback reminderCallback;
+    Callbackable reminderCallback;
 
-    public ReminderListCaller(ReminderCallback callback){
+    public ReminderListCaller(Callbackable callback){
         this.reminderCallback = callback;
     }
 
 
     public void createCall(Context context){
         // TODO: change url to correct later
-        String url = "http://93.176.82.48/weatherforecast";
+        String url = "http://93.176.82.48/";
 
         RequestQueue queue = Volley.newRequestQueue(context);
 
-        JsonObjectRequest jsonObjectRequest2 = new JsonObjectRequest(Request.Method.GET, url, null, this, this);
+        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, url, null, this, this);
 
-        queue.add(jsonObjectRequest2);
+        queue.add(jsonObjectRequest);
     }
 
     @Override
@@ -40,11 +37,11 @@ public class ReminderListCaller implements Response.Listener, Response.ErrorList
 
         //TODO: Mock list to fit the api dto
 
-        reminderCallback.updateListerns(null);
+        reminderCallback.updateCallback(null);
     }
 
     @Override
     public void onErrorResponse(VolleyError error) {
-        reminderCallback.errorListeners(error.getMessage());
+        reminderCallback.errorCallback(error.getMessage());
     }
 }
