@@ -41,12 +41,11 @@ public class MedicineActivity extends AppCompatActivity implements ReminderListe
         if(drugMedications.size() > 0){
             Log.e(Tag, "med id" + drugMedications.get(0).getIdentifier());
             Log.e(Tag, "drug id" + drugMedications.get(0).getDrug().getIdentifier());
-            reminderController.removeListener(this);
         }
     }
 
     @Override
     public void errorUpdate(String errorMessage) {
-
+        Log.e(Tag, errorMessage);
     }
 }
