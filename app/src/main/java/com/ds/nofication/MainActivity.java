@@ -26,7 +26,7 @@ import android.widget.TextView;
 import com.ds.nofication.Controllers.ReminderApiController;
 import com.ds.nofication.Listeners.ReminderListener;
 import com.ds.nofication.Listeners.PickerListener;
-import com.ds.nofication.Models.Reminder;
+import com.ds.nofication.Models.Backend.DrugMedication;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
@@ -222,7 +222,7 @@ public class MainActivity extends AppCompatActivity implements PickerListener, R
     }
 
     @Override
-    public void update(ArrayList<Reminder> reminders) {
+    public void update(ArrayList<DrugMedication> drugMedications) {
 
     }
 

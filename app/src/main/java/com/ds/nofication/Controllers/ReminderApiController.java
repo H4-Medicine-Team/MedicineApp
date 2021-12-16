@@ -3,7 +3,7 @@ package com.ds.nofication.Controllers;
 import android.content.Context;
 
 import com.ds.nofication.Listeners.ReminderListener;
-import com.ds.nofication.Models.Reminder;
+import com.ds.nofication.Models.Backend.DrugMedication;
 import com.ds.nofication.ReminderListCaller;
 
 import java.util.ArrayList;
@@ -29,7 +29,7 @@ public class ReminderApiController extends BaseApiController {
 
     @Override
     public void updateCallback(Object update) {
-        ArrayList<Reminder> r = (ArrayList<Reminder>)update;
+        ArrayList<DrugMedication> r = (ArrayList<DrugMedication>)update;
         for(ReminderListener listener : reminderListeners){
             listener.update(r);
         }
