@@ -13,4 +13,17 @@
         android:text="Hello world"
         tools:layout_editor_absoluteX="121dp"
         tools:layout_editor_absoluteY="125dp" />
+
+    <Button
+        android:id="@+id/getdata_btn"
+        android:layout_width="401dp"
+        android:layout_height="229dp"
+        android:layout_marginStart="1dp"
+        android:layout_marginTop="145dp"
+        android:text="GetData"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

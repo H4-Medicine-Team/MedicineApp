@@ -18,8 +18,8 @@ public class ReminderApiController extends BaseApiController {
 
     @Override
     public void addListener(Object _o) {
-        ReminderListener r = (ReminderListener) _o;
-        reminderListeners.add(r);
+        ReminderListener rl = (ReminderListener) _o;
+        reminderListeners.add(rl);
     }
 
     @Override
@@ -29,9 +29,9 @@ public class ReminderApiController extends BaseApiController {
 
     @Override
     public void updateCallback(Object update) {
-        ArrayList<DrugMedication> r = (ArrayList<DrugMedication>)update;
+        ArrayList<DrugMedication> drugMedications = (ArrayList<DrugMedication>)update;
         for(ReminderListener listener : reminderListeners){
-            listener.update(r);
+            listener.update(drugMedications);
         }
     }
 

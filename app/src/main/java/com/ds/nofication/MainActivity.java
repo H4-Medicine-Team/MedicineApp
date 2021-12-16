@@ -48,10 +48,6 @@ public class MainActivity extends AppCompatActivity implements PickerListener, R
         setContentView(R.layout.activity_main);
         Button medicineBtn = findViewById(R.id.medicine_page_btn);
         medicineBtn.setOnClickListener(this::openMedicineActivity);
-
-        ReminderApiController controller = new ReminderApiController();
-        controller.addListener(this);
-
     }
 
     public void openMedicineActivity(View v){
