@@ -15,6 +15,7 @@ import com.ds.nofication.DataPump.ExpandableMedicineListDataPump;
 import com.ds.nofication.Listeners.ReminderListener;
 import com.ds.nofication.Models.Backend.Dosage;
 import com.ds.nofication.Models.Backend.DrugMedication;
+import com.ds.nofication.Models.Backend.MedicineCard;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -27,42 +28,45 @@ public class MedicineActivity extends AppCompatActivity implements ReminderListe
     MedicineListAdapter medicineListAdapter;
     List<DrugMedication> expandableDrugMedications;
     HashMap<DrugMedication, List<Dosage>> drugMedicationListHashMap;
+
     final String Tag = "MedicineActivity";
 
-    //TODO: LOOK INTO THIS
-    @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_medicine);
+
+        expandableListView = (ExpandableListView) findViewById(R.id.expandableListView);
+
 
         reminderController = new ReminderApiController();
         reminderController.addListener(this);
 
         //Button btn = findViewById(R.id.getdata_btn);
         //btn.setOnClickListener(this::getData);
-        expandableListView = (ExpandableListView) findViewById(R.id.expandableListView);
-        drugMedicationListHashMap = ExpandableMedicineListDataPump.getData();
-        expandableDrugMedications = new ArrayList<DrugMedication>(drugMedicationListHashMap.keySet());
-        medicineListAdapter = new MedicineListAdapter(this, expandableDrugMedications, drugMedicationListHashMap);
-        expandableListView.setAdapter(medicineListAdapter);
 
-        getData(null);
+        getDataFromApi(null);
 
     }
 
-    public void getData(View v){
+    public void getDataFromApi(View v){
         reminderController.requestReminders(this.getBaseContext());
     }
 
     @Override
-    public void update(ArrayList<DrugMedication> drugMedications) {
-        Log.e(Tag, "size" + drugMedications.size());
+    public void update(MedicineCard medicineCard) {
 
-        if(drugMedications.size() > 0){
-            Log.e(Tag, "med id" + drugMedications.get(0).getIdentifier());
-            Log.e(Tag, "drug id" + drugMedications.get(0).getDrug().getIdentifier());
+        drugMedicationListHashMap = ExpandableMedicineListDataPump.getData(medicineCard);
+        expandableDrugMedications = new ArrayList<DrugMedication>(drugMedicationListHashMap.keySet());
+        medicineListAdapter = new MedicineListAdapter(this, expandableDrugMedications, drugMedicationListHashMap);
+        expandableListView.setAdapter(medicineListAdapter);
+
+        /*
+        if(medicineCard.getDrugMedications().size() > 0){
+            Log.e(Tag, "med id" + medicineCard.getDrugMedications().get(0).getIdentifier());
+            Log.e(Tag, "drug id" + medicineCard.getDrugMedications().get(0).getDrug().getIdentifier());
         }
+        */
     }
 
     @Override

@@ -25,9 +25,14 @@ import com.ds.nofication.Models.Backend.Interval;
 import com.ds.nofication.Models.Backend.MedicineCard;
 import com.google.gson.Gson;
 
+import java.time.Instant;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
+import java.time.OffsetDateTime;
+import java.time.ZoneId;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.Date;
 
 public class ReminderListCaller implements Response.Listener, Response.ErrorListener {
 
@@ -65,20 +70,11 @@ public class ReminderListCaller implements Response.Listener, Response.ErrorList
     public void onResponse(Object response) {
         Gson gson = new Gson();
 
-        Log.e("gson log", response.toString());
-        String jString = response.toString();
-        //TODO: Remove mock data and replace it with response from backend
+        //Log.e("gson log", response.toString());
+        //String jString = response.toString();
+
         MedicineCard medicineCard = gson.fromJson(response.toString(), MedicineCard.class);
 
-        /*
-        ArrayList<Dosage> dosages = new ArrayList<>();
-        dosages.add(new Dosage(1, AmountType.ML, new Interval(LocalDateTime.now(), LocalDateTime.now(), LocalTime.now(), new Days[] { Days.Monday })));
-
-        DrugMedication drugMedication = new DrugMedication(dosages, new Drug("Yeet", "123"), "321", new BeginEndDate(LocalDateTime.now(), LocalDateTime.now()));
-        ArrayList<DrugMedication> drugMedications = new ArrayList<>();
-        drugMedications.add(drugMedication);
-        MedicineCard medicineCard = new MedicineCard(drugMedications);
-        */
         reminderCallback.updateCallback(medicineCard);
     }
 

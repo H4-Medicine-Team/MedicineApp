@@ -4,6 +4,7 @@ import android.content.Context;
 
 import com.ds.nofication.Listeners.ReminderListener;
 import com.ds.nofication.Models.Backend.DrugMedication;
+import com.ds.nofication.Models.Backend.MedicineCard;
 import com.ds.nofication.ReminderListCaller;
 
 import java.util.ArrayList;
@@ -45,9 +46,9 @@ public class ReminderApiController extends BaseApiController {
      */
     @Override
     public void updateCallback(Object callbackObject) {
-        ArrayList<DrugMedication> drugMedications = (ArrayList<DrugMedication>)callbackObject;
+        MedicineCard medicineCard = (MedicineCard) callbackObject;
         for(ReminderListener listener : reminderListeners){
-            listener.update(drugMedications);
+            listener.update(medicineCard);
         }
     }
 

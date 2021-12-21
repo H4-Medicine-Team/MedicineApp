@@ -33,7 +33,7 @@ import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.Calendar;
 
-public class MainActivity extends AppCompatActivity implements PickerListener, ReminderListener {
+public class MainActivity extends AppCompatActivity implements PickerListener {
 
     private long totalTime = 0;
     private int year = 0;
@@ -215,15 +215,5 @@ public class MainActivity extends AppCompatActivity implements PickerListener, R
         this.year = year;
         this.month = month;
         this.day = day;
-    }
-
-    @Override
-    public void update(ArrayList<DrugMedication> drugMedications) {
-
-    }
-
-    @Override
-    public void errorUpdate(String errorMessage) {
-
     }
 }
