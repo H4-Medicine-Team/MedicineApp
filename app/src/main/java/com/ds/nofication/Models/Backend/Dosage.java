@@ -13,7 +13,7 @@ public class Dosage {
         return this.amount;
     }
     public Interval getInterval(){
-        return  this.interval;
+        return this.interval;
     }
 
     public AmountType getAmountType() {

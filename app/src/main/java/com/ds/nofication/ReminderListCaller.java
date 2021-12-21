@@ -24,6 +24,7 @@ import com.ds.nofication.Models.Backend.MedicineCard;
 import com.google.gson.Gson;
 
 import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.util.ArrayList;
 
 public class ReminderListCaller implements Response.Listener, Response.ErrorListener {
@@ -65,7 +66,7 @@ public class ReminderListCaller implements Response.Listener, Response.ErrorList
         //TODO: Remove mock data and replace it with response from backend
 
         ArrayList<Dosage> dosages = new ArrayList<>();
-        dosages.add(new Dosage(1, AmountType.ML, new Interval(LocalDateTime.now(), LocalDateTime.now(), LocalDateTime.now(), new Days[] { Days.Monday })));
+        dosages.add(new Dosage(1, AmountType.ML, new Interval(LocalDateTime.now(), LocalDateTime.now(), LocalTime.now(), new Days[] { Days.Monday })));
 
         DrugMedication drugMedication = new DrugMedication(dosages, new Drug("Yeet", "123"), "321", new BeginEndDate(LocalDateTime.now(), LocalDateTime.now()));
         ArrayList<DrugMedication> drugMedications = new ArrayList<>();
