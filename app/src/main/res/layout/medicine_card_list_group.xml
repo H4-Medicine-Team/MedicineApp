@@ -2,7 +2,8 @@
 
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="horizontal" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@drawable/med_background">
 
     <TextView
         android:id="@+id/medicineName"
@@ -12,8 +13,8 @@
         android:layout_weight="1"
         android:paddingLeft="?android:attr/expandableListPreferredItemPaddingLeft"
         android:textColor="@android:color/black"
-        android:paddingTop="10dp"
-        android:paddingBottom="10dp" />
+        android:paddingTop="15dp"
+        android:paddingBottom="15dp" />
     <TextView
         android:id="@+id/medicineNextTimeToTake"
         android:text="11:20"
@@ -22,8 +23,8 @@
         android:layout_weight="1"
         android:paddingLeft="?android:attr/expandableListPreferredItemPaddingLeft"
         android:textColor="@android:color/black"
-        android:paddingTop="10dp"
-        android:paddingBottom="10dp" />
+        android:paddingTop="15dp"
+        android:paddingBottom="15dp" />
     <TextView
         android:id="@+id/medicineCount"
         android:text="10/20"
@@ -32,6 +33,6 @@
         android:layout_weight="1"
         android:paddingLeft="?android:attr/expandableListPreferredItemPaddingLeft"
         android:textColor="@android:color/black"
-        android:paddingTop="10dp"
-        android:paddingBottom="10dp" />
+        android:paddingTop="15dp"
+        android:paddingBottom="15dp" />
 </LinearLayout>
