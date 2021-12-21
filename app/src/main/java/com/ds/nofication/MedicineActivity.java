@@ -47,6 +47,8 @@ public class MedicineActivity extends AppCompatActivity implements ReminderListe
         medicineListAdapter = new MedicineListAdapter(this, expandableDrugMedications, drugMedicationListHashMap);
         expandableListView.setAdapter(medicineListAdapter);
 
+        getData(null);
+
     }
 
     public void getData(View v){

@@ -5,11 +5,11 @@ import java.util.ArrayList;
 public class MedicineCard {
 
     public MedicineCard(ArrayList<DrugMedication> drugs){
-        drugMedications = drugs;
+        drugMedication = drugs;
     }
 
-    private ArrayList<DrugMedication> drugMedications;
+    private ArrayList<DrugMedication> drugMedication;
     public ArrayList<DrugMedication> getDrugMedications(){
-        return drugMedications;
+        return drugMedication;
     }
 }

@@ -41,7 +41,7 @@ public class ExpandableMedicineListDataPump {
         MedicineCard medicineCard = new MedicineCard(drugMedications);
 
         for (DrugMedication drugMeds: medicineCard.getDrugMedications()) {
-            drugMedicationListHashMap.put(drugMeds, drugMeds.getDosages());
+            drugMedicationListHashMap.put(drugMeds, drugMeds.getDosage());
         }
         return drugMedicationListHashMap;
     }

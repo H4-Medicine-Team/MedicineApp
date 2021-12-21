@@ -1,7 +1,9 @@
 package com.ds.nofication;
 
 import android.content.Context;
+import android.nfc.Tag;
 import android.os.Build;
+import android.util.Log;
 
 import androidx.annotation.RequiresApi;
 
@@ -42,12 +44,12 @@ public class ReminderListCaller implements Response.Listener, Response.ErrorList
     public void createCall(Context context){
         // TODO: change url to correct later
         // TODO: ask geef if we should have send baseurl down here
-        String url = "http://93.176.82.48/weatherforecast";
+        String url = "http://93.176.82.48/api/medicine/medicinecard?cprnumber=12345678912";
 
         RequestQueue queue = Volley.newRequestQueue(context);
 
         // TODO: change to jsonobjectrequest if its object we got from endpoint
-        JsonArrayRequest jsonObjectRequest = new JsonArrayRequest(Request.Method.GET, url, null, this, this);
+        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, url, null, this, this);
 
         queue.add(jsonObjectRequest);
     }
@@ -63,8 +65,12 @@ public class ReminderListCaller implements Response.Listener, Response.ErrorList
     public void onResponse(Object response) {
         Gson gson = new Gson();
 
+        Log.e("gson log", response.toString());
+        String jString = response.toString();
         //TODO: Remove mock data and replace it with response from backend
+        MedicineCard medicineCard = gson.fromJson(response.toString(), MedicineCard.class);
 
+        /*
         ArrayList<Dosage> dosages = new ArrayList<>();
         dosages.add(new Dosage(1, AmountType.ML, new Interval(LocalDateTime.now(), LocalDateTime.now(), LocalTime.now(), new Days[] { Days.Monday })));
 
@@ -72,8 +78,8 @@ public class ReminderListCaller implements Response.Listener, Response.ErrorList
         ArrayList<DrugMedication> drugMedications = new ArrayList<>();
         drugMedications.add(drugMedication);
         MedicineCard medicineCard = new MedicineCard(drugMedications);
-
-        reminderCallback.updateCallback(drugMedications);
+        */
+        reminderCallback.updateCallback(medicineCard);
     }
 
     /**

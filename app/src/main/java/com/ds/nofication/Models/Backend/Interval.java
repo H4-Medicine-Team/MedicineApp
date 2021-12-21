@@ -7,16 +7,16 @@ public class Interval {
     private Days[] days;
     private LocalDateTime start;
     private LocalDateTime end;
-    private LocalTime ConsumptionTime;
+    private LocalTime consumptionTime;
     public Interval(LocalDateTime start, LocalDateTime end, LocalTime consumptionTime, Days[] days){
         this.start = start;
         this.end = end;
-        this.ConsumptionTime = consumptionTime;
+        this.consumptionTime = consumptionTime;
         this.days = days;
     }
 
     public LocalTime getConsumptionTime() {
-        return ConsumptionTime;
+        return consumptionTime;
     }
 
     public LocalDateTime getStart() {
