@@ -1,6 +1,7 @@
 package com.ds.nofication.Interfaces;
 
 public interface Callbackable {
+
      /**
       * Method that will be called on receiving information
       * @param update Object that will be received

@@ -10,9 +10,24 @@ import java.time.LocalDateTime;
 import java.time.LocalTime;
 
 public class Interval {
+    /**
+     * The days of the week where the interval is activated.
+     */
     private Days[] days;
+
+    /**
+     * The start of the interval.
+     */
     private String start;
+
+    /**
+     * When the interval is going to end.
+     */
     private String end;
+
+    /**
+     * The time of the day where the interval is activated.
+     */
     private String consumptionTime;
     public Interval(String start, String end, String consumptionTime, Days[] days){
         this.start = start;

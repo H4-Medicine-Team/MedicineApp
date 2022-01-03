@@ -8,6 +8,9 @@ public class MedicineCard {
         drugMedication = drugs;
     }
 
+    /**
+     * Refers to the list of medication the patient has.
+     */
     private ArrayList<DrugMedication> drugMedication;
     public ArrayList<DrugMedication> getDrugMedications(){
         return drugMedication;

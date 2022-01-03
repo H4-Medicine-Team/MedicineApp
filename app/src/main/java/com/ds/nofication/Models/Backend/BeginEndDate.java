@@ -9,7 +9,14 @@ import com.ds.nofication.DateConverter;
 import java.time.LocalDateTime;
 
 public class BeginEndDate {
+    /**
+     * The start date.
+     */
     private String startDate;
+
+    /**
+     * The end date.
+     */
     private String endDate;
 
     public BeginEndDate(String startDate, String endDate){

@@ -9,7 +9,6 @@ public interface Listenable {
      * @param _o Object to add to listener list
      */
     void addListener(Object _o);
-    // Removes objr
 
     /**
      * Remove object from listener

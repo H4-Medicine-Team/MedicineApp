@@ -43,8 +43,8 @@ public class ReminderListCaller implements Response.Listener, Response.ErrorList
     }
 
     /**
-     *  Sends get request to endpoint     *
-     * @param context
+     *  Sends get request to endpoint
+     * @param context Activity Context
      */
     public void createCall(Context context){
         String baseUrl = new ConfigLoader().getConfigValue(context,"medicinecard_url");

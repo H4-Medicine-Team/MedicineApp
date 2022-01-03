@@ -9,9 +9,24 @@ import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
 
 public class DrugMedication {
+    /**
+     * The list of dosages for this medication.
+     */
     private ArrayList<Dosage> dosage;
+
+    /**
+     * The description of the drug.
+     */
     private Drug drug;
+
+    /**
+     * The unique id of the medication.
+     */
     private String identifier;
+
+    /**
+     * When the medicine was starting to be issued, and when the medication is ending.
+     */
     private BeginEndDate beginEndDate;
 
     public DrugMedication(ArrayList<Dosage> dosages, Drug drug, String identifier, BeginEndDate beginEndDate){
