@@ -36,8 +36,12 @@ public class MedicineActivity extends AppCompatActivity implements ReminderListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_medicine);
 
-        expandableListView = (ExpandableListView) findViewById(R.id.expandableListView);
+        ConfigLoader cl = new ConfigLoader();
+        String configVal = cl.getConfigValue(this.getBaseContext(), "api_url");
 
+        Log.e(Tag, configVal);
+
+        expandableListView = (ExpandableListView) findViewById(R.id.expandableListView);
 
         reminderController = new ReminderApiController();
         reminderController.addListener(this);
@@ -45,32 +49,19 @@ public class MedicineActivity extends AppCompatActivity implements ReminderListe
         //Button btn = findViewById(R.id.getdata_btn);
         //btn.setOnClickListener(this::getData);
 
-        getDataFromApi(null);
-
-    }
-
-    public void getDataFromApi(View v){
         reminderController.requestReminders(this.getBaseContext());
     }
 
     @Override
     public void update(MedicineCard medicineCard) {
-
         drugMedicationListHashMap = ExpandableMedicineListDataPump.getData(medicineCard);
         expandableDrugMedications = new ArrayList<DrugMedication>(drugMedicationListHashMap.keySet());
         medicineListAdapter = new MedicineListAdapter(this, expandableDrugMedications, drugMedicationListHashMap);
         expandableListView.setAdapter(medicineListAdapter);
-
-        /*
-        if(medicineCard.getDrugMedications().size() > 0){
-            Log.e(Tag, "med id" + medicineCard.getDrugMedications().get(0).getIdentifier());
-            Log.e(Tag, "drug id" + medicineCard.getDrugMedications().get(0).getDrug().getIdentifier());
-        }
-        */
     }
 
     @Override
     public void errorUpdate(String errorMessage) {
-        Log.e(Tag, errorMessage);
+        Log.e(Tag, "Error update: " + errorMessage);
     }
 }

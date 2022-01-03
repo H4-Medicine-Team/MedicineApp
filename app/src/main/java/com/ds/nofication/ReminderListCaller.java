@@ -47,13 +47,12 @@ public class ReminderListCaller implements Response.Listener, Response.ErrorList
      * @param context
      */
     public void createCall(Context context){
-        // TODO: change url to correct later
-        // TODO: ask geef if we should have send baseurl down here
-        String url = "http://93.176.82.48/api/medicine/medicinecard?cprnumber=12345678912";
+        String baseUrl = new ConfigLoader().getConfigValue(context,"medicinecard_url");
+        String url = baseUrl + "?cprnumber=12345678912";
 
         RequestQueue queue = Volley.newRequestQueue(context);
 
-        // TODO: change to jsonobjectrequest if its object we got from endpoint
+        // TODO: change to JsonObjectArray if its object we got from endpoint
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, url, null, this, this);
 
         queue.add(jsonObjectRequest);
@@ -85,6 +84,6 @@ public class ReminderListCaller implements Response.Listener, Response.ErrorList
      */
     @Override
     public void onErrorResponse(VolleyError error) {
-        reminderCallback.errorCallback(error.getMessage());
+        reminderCallback.errorCallback(error.toString());
     }
 }

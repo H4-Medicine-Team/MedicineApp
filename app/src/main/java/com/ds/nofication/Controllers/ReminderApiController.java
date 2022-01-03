@@ -24,7 +24,7 @@ public class ReminderApiController extends BaseApiController {
 
     /**
      * Adds listeners to reminder listeners
-     * @param _o
+     * @param _o ReminderListener
      */
     @Override
     public void addListener(Object _o) {
@@ -33,7 +33,7 @@ public class ReminderApiController extends BaseApiController {
     }
     /**
      * Removes listeners to reminder listeners
-     * @param _o
+     * @param _o ReminderListener
      */
     @Override
     public void removeListener(Object _o) {
