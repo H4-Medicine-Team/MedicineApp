@@ -46,9 +46,9 @@ public class ReminderListCaller implements Response.Listener, Response.ErrorList
      *  Sends get request to endpoint
      * @param context Activity Context
      */
-    public void createCall(Context context){
-        String baseUrl = new ConfigLoader().getConfigValue(context,"medicinecard_url");
-        String url = baseUrl + "?cprnumber=12345678912";
+    public void createCall(Context context, String cprNumber){
+        String medicinecardUrl = new ConfigLoader().getConfigValue(context,"medicinecard_url");
+        String url = medicinecardUrl + "?cprnumber=" + cprNumber;
 
         RequestQueue queue = Volley.newRequestQueue(context);
 
@@ -58,13 +58,11 @@ public class ReminderListCaller implements Response.Listener, Response.ErrorList
         queue.add(jsonObjectRequest);
     }
 
-    // TODO: Remove requiers as its only here because we are using localdatetime.now()
     /**
     * Gets response object from the endpoint, calls callback method
     * {@link #reminderCallback} update will be called on this callback
     * @param response Response object from endpoint
     * */
-    @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
     public void onResponse(Object response) {
         Gson gson = new Gson();
@@ -79,8 +77,8 @@ public class ReminderListCaller implements Response.Listener, Response.ErrorList
             reminderCallback.updateCallback(medicineCard);
 
         }catch (Exception e){
-            //Log.e("ReminderListCaller", "Response: " + response.toString());
-            //Log.e("ReminderListCaller", "Exception: " + e.toString());
+            Log.e("ReminderListCaller", "Response: " + response.toString());
+            Log.e("ReminderListCaller", "Exception: " + e.toString());
             reminderCallback.errorCallback("Error:" + e.toString());
         }
     }

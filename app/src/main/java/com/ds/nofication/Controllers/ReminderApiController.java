@@ -16,9 +16,9 @@ public class ReminderApiController extends BaseApiController<ReminderListener> {
      * {@link #updateCallback(Object)} will be called if request was successfull and update all listeners
      * @param context Activity Context
      */
-    public void requestReminders(Context context){
+    public void requestReminders(Context context, String cprNumber){
         ReminderListCaller caller = new ReminderListCaller(this);
-        caller.createCall(context);
+        caller.createCall(context, cprNumber);
     }
 
     /**

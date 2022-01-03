@@ -27,7 +27,8 @@ public class ConfigLoaderTest {
         ConfigLoader configLoader = new ConfigLoader();
         Context appContext = InstrumentationRegistry.getInstrumentation().getTargetContext();
 
-        String configValue = configLoader.getConfigValue(appContext, "magic number");
+        // If the key does not exist, it will be error logged and method will return null
+        String configValue = configLoader.getConfigValue(appContext, "key that does not exist");
 
         assertEquals(null, configValue);
     }

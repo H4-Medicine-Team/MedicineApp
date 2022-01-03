@@ -7,5 +7,5 @@ import com.ds.nofication.Listeners.ReminderListener;
 import java.util.ArrayList;
 
 public abstract class BaseApiController<T> implements Callbackable, Listenable {
-    ArrayList<T> listeners = new ArrayList<>();
+    protected ArrayList<T> listeners = new ArrayList<>();
 }

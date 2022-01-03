@@ -49,7 +49,7 @@ public class MedicineActivity extends AppCompatActivity implements ReminderListe
         //Button btn = findViewById(R.id.getdata_btn);
         //btn.setOnClickListener(this::getData);
 
-        reminderController.requestReminders(this.getBaseContext());
+        reminderController.requestReminders(this.getBaseContext(), "12345678912");
     }
 
     @Override
