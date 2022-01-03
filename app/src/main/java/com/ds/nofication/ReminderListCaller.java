@@ -68,13 +68,15 @@ public class ReminderListCaller implements Response.Listener, Response.ErrorList
     @Override
     public void onResponse(Object response) {
         Gson gson = new Gson();
+        try{
+            MedicineCard medicineCard = gson.fromJson(response.toString(), MedicineCard.class);
 
-        //Log.e("gson log", response.toString());
-        //String jString = response.toString();
+            reminderCallback.updateCallback(medicineCard);
 
-        MedicineCard medicineCard = gson.fromJson(response.toString(), MedicineCard.class);
-
-        reminderCallback.updateCallback(medicineCard);
+        }catch (Exception e){
+            Log.e("ReminderListCaller", "Response: " + response.toString());
+            Log.e("ReminderListCaller", "Exception: " + e.toString());
+        }
     }
 
     /**

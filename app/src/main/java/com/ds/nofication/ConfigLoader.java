@@ -12,6 +12,12 @@ import java.util.Properties;
 public class ConfigLoader {
     private static final String TAG = "ConfigLoader";
 
+    /**
+     * Loads value from config file
+     * @param context Activity context
+     * @param name Name of the config key/name
+     * @return return value from the config or null
+     */
     public String getConfigValue(Context context, String name) {
         Resources resources = context.getResources();
 

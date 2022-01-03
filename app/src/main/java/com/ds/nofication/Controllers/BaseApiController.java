@@ -2,7 +2,10 @@ package com.ds.nofication.Controllers;
 
 import com.ds.nofication.Interfaces.Callbackable;
 import com.ds.nofication.Interfaces.Listenable;
+import com.ds.nofication.Listeners.ReminderListener;
 
-public abstract class BaseApiController implements Callbackable, Listenable {
+import java.util.ArrayList;
 
+public abstract class BaseApiController<T> implements Callbackable, Listenable {
+    ArrayList<T> listeners = new ArrayList<>();
 }
