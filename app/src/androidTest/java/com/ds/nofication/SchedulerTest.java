@@ -67,7 +67,76 @@ public class SchedulerTest {
             Assert.fail("Throwable was unexpectedly thrown." + e);
         }
     }
+    @Test
+    public void DateDifferenceNextDay() {
+        try {
+            Scheduler schedule = new Scheduler();
 
+            Calendar currentDate = Calendar.getInstance();
+            currentDate.set(
+                    currentDate.get(Calendar.YEAR),
+                    currentDate.get(Calendar.MONTH),
+                    currentDate.get(Calendar.DATE) + 1,
+                    19,
+                    0);
+            Long diff = schedule.getDateDiff(currentDate);
+            assertNotNull(diff);
+        }
+        catch (RuntimeException e) {
+            assertNotNull("missing original exception", e.getCause());
+            assertEquals(IOException.class, e.getCause().getClass());
+        }
+        catch (Exception e) {
+            Assert.fail("Throwable was unexpectedly thrown." + e);
+        }
+    }
+
+    @Test
+    public void DateDifferenceNextMonth() {
+        try {
+            Scheduler schedule = new Scheduler();
+            Calendar currentDate = Calendar.getInstance();
+            currentDate.set(
+                    currentDate.get(Calendar.YEAR),
+                    currentDate.get(Calendar.MONTH) + 1,
+                    currentDate.get(Calendar.DATE),
+                    19,
+                    0);
+            Long diff = schedule.getDateDiff(currentDate);
+            assertNotNull(diff);
+        }
+        catch (RuntimeException e) {
+            assertNotNull("missing original exception", e.getCause());
+            assertEquals(IOException.class, e.getCause().getClass());
+        }
+        catch (Exception e) {
+            Assert.fail("Throwable was unexpectedly thrown." + e);
+        }
+    }
+
+    @Test
+    public void DateDifferenceNextYear() {
+        try {
+            Scheduler schedule = new Scheduler();
+
+            Calendar currentDate = Calendar.getInstance();
+            currentDate.set(
+                    currentDate.get(Calendar.YEAR) + 1,
+                    currentDate.get(Calendar.MONTH),
+                    currentDate.get(Calendar.DATE),
+                    19,
+                    0);
+            Long diff = schedule.getDateDiff(currentDate);
+            assertNotNull(diff);
+        }
+        catch (RuntimeException e) {
+            assertNotNull("missing original exception", e.getCause());
+            assertEquals(IOException.class, e.getCause().getClass());
+        }
+        catch (Exception e) {
+            Assert.fail("Throwable was unexpectedly thrown." + e);
+        }
+    }
 
 
 }

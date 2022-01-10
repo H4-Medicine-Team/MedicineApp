@@ -29,8 +29,6 @@ public class NotificationPublisher  extends BroadcastReceiver {
         int id = intent.getIntExtra(context.getString(R.string.NotificationId), 0);
         notificationManager.notify(id, notification);
         playNotificationSound(context);
-
-
     }
   
 

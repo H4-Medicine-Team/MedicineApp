@@ -41,8 +41,6 @@ public class Scheduler {
      */
     public void startNotification(Context context, int notificationID, long delay) {
         try {
-
-
             scheduleNotification(
                     createNotification(
                             context,
