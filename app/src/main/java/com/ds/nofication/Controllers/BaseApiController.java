@@ -2,7 +2,10 @@ package com.ds.nofication.Controllers;
 
 import com.ds.nofication.Interfaces.Callbackable;
 import com.ds.nofication.Interfaces.Listenable;
+import com.ds.nofication.Listeners.ReminderListener;
 
-public abstract class BaseApiController implements Callbackable, Listenable {
-    protected String baseURl = "http://93.176.82.48/";
+import java.util.ArrayList;
+
+public abstract class BaseApiController<T> implements Callbackable, Listenable {
+    protected ArrayList<T> listeners = new ArrayList<>();
 }

@@ -26,14 +26,14 @@ import android.widget.TextView;
 import com.ds.nofication.Controllers.ReminderApiController;
 import com.ds.nofication.Listeners.ReminderListener;
 import com.ds.nofication.Listeners.PickerListener;
-import com.ds.nofication.Models.Reminder;
+import com.ds.nofication.Models.Backend.DrugMedication;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.Calendar;
 
-public class MainActivity extends AppCompatActivity implements PickerListener, ReminderListener {
+public class MainActivity extends AppCompatActivity implements PickerListener {
 
     private long totalTime = 0;
     private int year = 0;
@@ -48,10 +48,6 @@ public class MainActivity extends AppCompatActivity implements PickerListener, R
         setContentView(R.layout.activity_main);
         Button medicineBtn = findViewById(R.id.medicine_page_btn);
         medicineBtn.setOnClickListener(this::openMedicineActivity);
-
-        ReminderApiController controller = new ReminderApiController();
-        controller.addListener(this);
-
     }
 
     public void openMedicineActivity(View v){
@@ -219,15 +215,5 @@ public class MainActivity extends AppCompatActivity implements PickerListener, R
         this.year = year;
         this.month = month;
         this.day = day;
-    }
-
-    @Override
-    public void update(ArrayList<Reminder> reminders) {
-
-    }
-
-    @Override
-    public void errorUpdate(String errorMessage) {
-
     }
 }
