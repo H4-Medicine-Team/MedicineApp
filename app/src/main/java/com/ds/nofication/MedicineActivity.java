@@ -123,15 +123,7 @@ public class MedicineActivity extends AppCompatActivity implements ReminderListe
        // }
     }
 
-    public static long getDateDiff(String oldDate, String newDate) {
-        SimpleDateFormat format = new SimpleDateFormat("EEE MMM dd HH:mm:ss z yyyy");
-        try {
-            return TimeUnit.DAYS.convert(format.parse(newDate).getTime() - format.parse(oldDate).getTime(), TimeUnit.MILLISECONDS);
-        } catch (Exception e) {
-            e.printStackTrace();
-            return 0;
-        }
-    }
+
     @Override
     public void errorUpdate(String errorMessage) {
         Log.e(Tag, "Error update: " + errorMessage);
@@ -180,6 +172,7 @@ public class MedicineActivity extends AppCompatActivity implements ReminderListe
                         .setContentText(content)
                         //.setContentIntent(pendingIntent)
                         .setVisibility(NotificationCompat.VISIBILITY_PUBLIC);
+
         // Since android Oreo notification channel is needed.
         NotificationManagerCompat notificationManager = NotificationManagerCompat.from(MedicineActivity.this);
 
