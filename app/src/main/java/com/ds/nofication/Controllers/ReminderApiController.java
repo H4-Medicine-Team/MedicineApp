@@ -3,11 +3,8 @@ package com.ds.nofication.Controllers;
 import android.content.Context;
 
 import com.ds.nofication.Listeners.ReminderListener;
-import com.ds.nofication.Models.Backend.DrugMedication;
 import com.ds.nofication.Models.Backend.MedicineCard;
-import com.ds.nofication.ReminderListCaller;
-
-import java.util.ArrayList;
+import com.ds.nofication.Callers.ReminderListCaller;
 
 public class ReminderApiController extends BaseApiController<ReminderListener> {
 

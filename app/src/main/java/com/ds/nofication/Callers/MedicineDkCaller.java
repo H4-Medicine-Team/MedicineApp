@@ -14,11 +14,11 @@ import com.ds.nofication.Interfaces.Callbackable;
 import com.ds.nofication.Models.Backend.MedicineDkDTO;
 import com.google.gson.Gson;
 
-public class MedicineDkSearchCaller implements Response.Listener, Response.ErrorListener {
+public class MedicineDkCaller implements Response.Listener, Response.ErrorListener {
 
     private Callbackable medicineDkCallback;
 
-    public MedicineDkSearchCaller(Callbackable callback){
+    public MedicineDkCaller(Callbackable callback){
         this.medicineDkCallback = callback;
     }
 
@@ -27,8 +27,8 @@ public class MedicineDkSearchCaller implements Response.Listener, Response.Error
      * @param context Activity Context
      */
     public void createCall(Context context, String drugId){
-        String medicineDkSearchUrl = new ConfigLoader().getConfigValue(context,"medicineDkGet_url");
-        String url = medicineDkSearchUrl + "?drugId=" + drugId;
+        String medicineDkGetUrl = new ConfigLoader().getConfigValue(context,"medicineDkGet_url");
+        String url = medicineDkGetUrl + "?drugId=" + drugId;
 
         RequestQueue queue = Volley.newRequestQueue(context);
 

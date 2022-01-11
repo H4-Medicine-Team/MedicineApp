@@ -1,4 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
 
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/medicineCard"
+            android:icon="@drawable/ic_medicinecard"
+            android:title="Medicinkort"></item>
+        <item
+            android:id="@+id/medicineInfo"
+            android:icon="@drawable/ic_medicineinfo"
+            android:title="Medicin Info"></item>
+        <item
+            android:id="@+id/reorder"
+            android:icon="@drawable/ic_reorder"
+            android:title="Genbestil"></item>
+        <item
+            android:id="@+id/guardian"
+            android:icon="@drawable/ic_guardian"
+            android:title="Værge"></item>
+    </group>
+    <item
+        android:id="@+id/settings"
+        android:icon="@drawable/ic_settings"
+        android:title="Indstillinger"></item>
 </menu>

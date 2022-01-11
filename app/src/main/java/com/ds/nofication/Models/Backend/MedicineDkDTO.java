@@ -1,4 +1,4 @@
 package com.ds.nofication.Models.Backend;
 
-public class MedicineDkSearchDTO {
+public class MedicineDkDTO {
 }

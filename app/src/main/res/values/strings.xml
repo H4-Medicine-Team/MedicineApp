@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">Notification</string>
-
-
     <string name="channel_Medicine">Medicine app</string>
     <string name="Medicine_content">Take your meds bro!</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
 </resources>
