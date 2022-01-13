@@ -1,7 +1,9 @@
 package com.ds.nofication.Adapters;
 
+import android.app.ActionBar;
 import android.content.Context;
 import android.graphics.Color;
+import android.text.Layout;
 import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -43,11 +45,10 @@ public class SecondLevelAdapter extends BaseExpandableListAdapter
         if (convertView == null) {
             LayoutInflater layoutInflater = (LayoutInflater) this.mContext
                     .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            convertView = layoutInflater.inflate(R.layout.medicine_list_item, parent, false);
+            convertView = layoutInflater.inflate(R.layout.medicine_list_info_description, parent, false);
         }
         TextView txtListChild = (TextView) convertView
-                .findViewById(R.id.expandedMedicineTimeToTake);
-        txtListChild.setTextSize(TypedValue.COMPLEX_UNIT_DIP, 15);
+                .findViewById(R.id.expandedMedicineInfoDescription);
         txtListChild.setText(childText);
         return convertView;
     }
@@ -88,8 +89,6 @@ public class SecondLevelAdapter extends BaseExpandableListAdapter
         TextView lblListHeader = (TextView) convertView
                 .findViewById(R.id.expandedMedicineInfo);
         lblListHeader.setText(headerTitle);
-        lblListHeader.setTextSize(TypedValue.COMPLEX_UNIT_DIP, 18);
-        lblListHeader.setTextColor(Color.YELLOW);
         return convertView;
     }
     @Override

@@ -5,6 +5,10 @@ import android.content.Context;
 import com.ds.nofication.Callers.MedicineDkCaller;
 import com.ds.nofication.Listeners.MedicineDkListener;
 import com.ds.nofication.Models.Backend.MedicineDkDTO;
+import com.ds.nofication.Models.Backend.MedicineInfo;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class MedicineDkApiController extends BaseApiController<MedicineDkListener> {
 
@@ -13,10 +17,11 @@ public class MedicineDkApiController extends BaseApiController<MedicineDkListene
      * {@link #updateCallback(Object)} will be called if request was successfull and update all listeners
      * @param context Activity Context
      */
-    public void requestSearchMedicine(Context context, String drugId){
+    public void requestGetMedicine(Context context, String drugId){
         MedicineDkCaller caller = new MedicineDkCaller(this);
         caller.createCall(context, drugId);
     }
+
 
     /**
      * Adds listeners to MedicineDk listeners
