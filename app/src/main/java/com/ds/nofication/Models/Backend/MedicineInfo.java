@@ -1,11 +1,10 @@
 package com.ds.nofication.Models.Backend;
 
-public class MedicineDkDTO {
+public class MedicineInfo {
     private String[] htmlData;
     private String title;
 
-    public MedicineDkDTO(String[] htmlData, String title)
-    {
+    public MedicineInfo(String[] htmlData, String title){
         this.htmlData = htmlData;
         this.title = title;
     }

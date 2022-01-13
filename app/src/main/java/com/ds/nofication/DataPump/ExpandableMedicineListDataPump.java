@@ -13,7 +13,7 @@ public class ExpandableMedicineListDataPump {
      * Separates the medicine card into hash table, based on drug medication as a key and List of dosages
      * as value
      * @param medicineCard Medicine card
-     * @return Hashtable devided by Drug medication and dosages for that medication
+     * @return Hashtable divided by Drug medication and dosages for that medication
      */
     public static HashMap<DrugMedication, List<Dosage>> getData(MedicineCard medicineCard) {
 
