@@ -7,7 +7,7 @@
     <string name="sign_in_title">Sign In med NemId</string>
     <string name="sign_in_btn_text">Sign In</string>
     <string name="sign_in">Sign In</string>
-    <string name="i_agree_to_the_terms_of_services_and_privacy_policy">I agree to the Terms of Services and Privacy Policy</string>
+    <string name="i_agree_to_the_terms_of_services_and_privacy_policy">Jeg accepterer Vilkår og betingelser.</string>
     <string name="continueSignInText">Fortsæt</string>
     <string name="Username_label">NemId brugernavn</string>
     <string name="password_label">Kodeord</string>
