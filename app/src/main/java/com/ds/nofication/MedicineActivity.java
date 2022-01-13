@@ -46,9 +46,6 @@ public class MedicineActivity extends AppCompatActivity implements ReminderListe
         reminderController = new ReminderApiController();
         reminderController.addListener(this);
 
-        //Button btn = findViewById(R.id.getdata_btn);
-        //btn.setOnClickListener(this::getData);
-
         reminderController.requestReminders(this.getBaseContext(), "12345678912");
     }
 
