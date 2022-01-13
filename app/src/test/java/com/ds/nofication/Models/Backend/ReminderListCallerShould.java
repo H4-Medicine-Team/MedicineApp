@@ -3,12 +3,11 @@ package com.ds.nofication.Models.Backend;
 import static org.junit.jupiter.api.Assertions.*;
 
 import com.ds.nofication.Interfaces.Callbackable;
-import com.ds.nofication.ReminderListCaller;
-import com.google.gson.Gson;
+import com.ds.nofication.Services.ReminderListCaller;
 
 import org.junit.jupiter.api.Test;
 
-public class ReminderListCallerTest {
+public class ReminderListCallerShould {
 
     @Test
     public void onResponseTest(){
