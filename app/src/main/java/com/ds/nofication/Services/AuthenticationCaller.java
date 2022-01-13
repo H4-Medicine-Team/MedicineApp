@@ -37,7 +37,7 @@ public class AuthenticationCaller implements Response.Listener, Response.ErrorLi
 
         try {
             String jsonStr = new Gson().toJson(authInfo);
-            JsonObjectRequest request = CreatePostJsonObject("AuthUser", jsonStr);
+            JsonObjectRequest request = CreatePostJsonObject("/login/login", jsonStr);
 
             queue.add(request);
         }

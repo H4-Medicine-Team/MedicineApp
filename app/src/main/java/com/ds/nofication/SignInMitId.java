@@ -46,9 +46,7 @@ public class SignInMitId extends AppCompatActivity implements AuthenticationList
 
     @Override
     public void onError(String errorResponse) {
-        Log.e("SignIn_MitId", errorResponse);
-        TextView errorText = (TextView) findViewById(R.id.signIn_error_text);
-        errorText.setVisibility(View.VISIBLE);
+        Log.e(SignInMitId.class.toString(), errorResponse);
         setErrorText("Der opstod et problem med at logge ind");
     }
 
@@ -87,10 +85,12 @@ public class SignInMitId extends AppCompatActivity implements AuthenticationList
     }
 
     /**
-     * Sets the error text in the ui
+     * Sets the error text in the ui, and sets the text to visible
      * @param text The text to set
      */
     private void setErrorText(String text) {
-        ((TextView)findViewById(R.id.signIn_error_text)).setText(text);
+        TextView errorText = (TextView) findViewById(R.id.signIn_error_text);
+        errorText.setText(text);
+        errorText.setVisibility(View.VISIBLE);
     }
 }
