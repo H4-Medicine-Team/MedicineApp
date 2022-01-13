@@ -18,7 +18,7 @@
         android:theme="@style/Theme.Nofication"
         android:usesCleartextTraffic="true">
         <activity
-            android:name=".SignIn_MitId"
+            android:name=".SignInMitId"
             android:exported="false" />
         <activity
             android:name=".SignIn"

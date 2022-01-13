@@ -14,11 +14,8 @@ import com.ds.nofication.Controllers.AuthenticationController;
 import com.ds.nofication.Listeners.AuthenticationListenAble;
 import com.ds.nofication.Models.Backend.UserAuthentication;
 import com.ds.nofication.Security.SecurityHandler;
-import com.ds.nofication.Services.AuthenticationCaller;
 
-import org.w3c.dom.Text;
-
-public class SignIn_MitId extends AppCompatActivity implements AuthenticationListenAble {
+public class SignInMitId extends AppCompatActivity implements AuthenticationListenAble {
 
     private AuthenticationController _authController;
     private SecurityHandler _storageHandler;
@@ -44,7 +41,7 @@ public class SignIn_MitId extends AppCompatActivity implements AuthenticationLis
         String key = _config.getConfigValue(getBaseContext(), "token_storage_key");
         _storageHandler.write(key, token);
 
-        startActivity(new Intent(SignIn_MitId.this, MedicineActivity.class));
+        startActivity(new Intent(SignInMitId.this, MedicineActivity.class));
     }
 
     @Override
@@ -52,13 +49,23 @@ public class SignIn_MitId extends AppCompatActivity implements AuthenticationLis
         Log.e("SignIn_MitId", errorResponse);
         TextView errorText = (TextView) findViewById(R.id.signIn_error_text);
         errorText.setVisibility(View.VISIBLE);
-        errorText.setText("Der opstod et problem med at logge ind");
+        setErrorText("Der opstod et problem med at logge ind");
     }
 
     private View.OnClickListener onLoginButtonClicked() {
         return new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                String username = getUsername();
+                String password = getPassword();
+
+                // Check if user or pass is empty and show message
+                if (username.isEmpty() || password.isEmpty())
+                {
+                    setErrorText("Username eller password kan ikke være tom");
+                    return;
+                }
+
                 UserAuthentication userAuth = new UserAuthentication(getUsername(), getPassword());
                 _authController.Login(userAuth);
             }
@@ -77,5 +84,13 @@ public class SignIn_MitId extends AppCompatActivity implements AuthenticationLis
      */
     private String getPassword() {
         return ((EditText)findViewById(R.id.password_field)).getText().toString();
+    }
+
+    /**
+     * Sets the error text in the ui
+     * @param text The text to set
+     */
+    private void setErrorText(String text) {
+        ((TextView)findViewById(R.id.signIn_error_text)).setText(text);
     }
 }

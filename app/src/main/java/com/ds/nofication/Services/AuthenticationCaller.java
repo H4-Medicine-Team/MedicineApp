@@ -74,11 +74,19 @@ public class AuthenticationCaller implements Response.Listener, Response.ErrorLi
         return new JsonObjectRequest(Request.Method.POST, _baseUrl + endpoint, jObj,this, this);
     }
 
+    /**
+     * {@inheritDoc}
+     * {@link #_callback} errorCallback will be called on this callback
+     */
     @Override
     public void onErrorResponse(VolleyError error) {
         _callback.errorCallback(error.toString());
     }
 
+    /**
+     * {@inheritDoc}
+     * {@link #_callback} update will be called on this callback
+     */
     @Override
     public void onResponse(Object response) {
         _callback.updateCallback(response);

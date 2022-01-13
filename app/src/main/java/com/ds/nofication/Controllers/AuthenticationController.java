@@ -20,6 +20,10 @@ public class AuthenticationController extends BaseApiController<AuthenticationLi
         _caller = new AuthenticationCaller(this, baseUrl);
     }
 
+    /**
+     * Calls the api to try to login user from the information given
+     * @param userInfo The user details to use when login in.
+     */
     public void Login(UserAuthentication userInfo) {
         try {
             _caller.UserLogin(_context, userInfo);
@@ -29,23 +33,35 @@ public class AuthenticationController extends BaseApiController<AuthenticationLi
         }
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public void updateCallback(Object update) {
         for (AuthenticationListenAble listener : listeners)
             listener.onLogin((String) update);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public void errorCallback(String errorMessage) {
         for (AuthenticationListenAble listener : listeners)
             listener.onError(errorMessage);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public void addListener(AuthenticationListenAble _o) {
         listeners.add(_o);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public void removeListener(AuthenticationListenAble _o) {
         listeners.add(_o);
