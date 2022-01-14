@@ -9,4 +9,9 @@
     <color name="white">#FFFFFFFF</color>
     <color name="medGreen">#ABFAA9</color>
     <color name="dosageGreen">#82D173</color>
+    <color name="fieldLabel">#BC1C31</color>
+    <color name="hintColor">#BCBCBC</color>
+
+    <color name="primary">#F85F6A</color>
+
 </resources>

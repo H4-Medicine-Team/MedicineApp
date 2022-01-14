@@ -6,6 +6,6 @@ import com.ds.nofication.Listeners.ReminderListener;
 
 import java.util.ArrayList;
 
-public abstract class BaseApiController<T> implements Callbackable, Listenable {
+public abstract class BaseApiController<T> implements Callbackable, Listenable<T> {
     protected ArrayList<T> listeners = new ArrayList<>();
 }
