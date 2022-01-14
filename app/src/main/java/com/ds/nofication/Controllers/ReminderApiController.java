@@ -4,6 +4,9 @@ import android.content.Context;
 
 import com.ds.nofication.Listeners.ReminderListener;
 import com.ds.nofication.Models.Backend.MedicineCard;
+import com.ds.nofication.ReminderListCaller;
+import java.text.ParseException;
+import java.util.ArrayList;
 import com.ds.nofication.Services.ReminderListCaller;
 
 public class ReminderApiController extends BaseApiController<ReminderListener> {
@@ -40,7 +43,7 @@ public class ReminderApiController extends BaseApiController<ReminderListener> {
      * @param callbackObject will be casted into correct object type
      */
     @Override
-    public void updateCallback(Object callbackObject) {
+    public void updateCallback(Object callbackObject) throws ParseException {
         MedicineCard medicineCard = (MedicineCard) callbackObject;
         for(ReminderListener listener : listeners){
             listener.update(medicineCard);
