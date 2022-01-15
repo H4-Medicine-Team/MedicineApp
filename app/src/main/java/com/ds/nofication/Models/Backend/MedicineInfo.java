@@ -11,6 +11,14 @@ public class MedicineInfo {
     public String[] getHtmlData() {
         return htmlData;
     }
+    public String getHtmlDataAsString() {
+        StringBuffer sb = new StringBuffer();
+        for(int i = 0; i < htmlData.length; i++) {
+            sb.append(htmlData[i]);
+        }
+        String str = sb.toString();
+        return str;
+    }
 
     public String getTitle() {
         return title;
