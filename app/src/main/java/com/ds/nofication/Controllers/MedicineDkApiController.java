@@ -4,7 +4,9 @@ import android.content.Context;
 
 import com.ds.nofication.Callers.MedicineDkCaller;
 import com.ds.nofication.Listeners.MedicineDkListener;
+import com.ds.nofication.Models.Backend.DrugMedicineInfo;
 import com.ds.nofication.Models.Backend.MedicineDkDTO;
+import com.ds.nofication.Models.Backend.MedicineDkWithIdDTO;
 import com.ds.nofication.Models.Backend.MedicineInfo;
 
 import java.util.ArrayList;
@@ -17,9 +19,9 @@ public class MedicineDkApiController extends BaseApiController<MedicineDkListene
      * {@link #updateCallback(Object)} will be called if request was successfull and update all listeners
      * @param context Activity Context
      */
-    public void requestGetMedicine(Context context, String drugId){
+    public void requestGetMedicine(Context context, String identifier){
         MedicineDkCaller caller = new MedicineDkCaller(this);
-        caller.createCall(context, drugId);
+        caller.createCall(context, identifier);
     }
 
 
@@ -47,9 +49,16 @@ public class MedicineDkApiController extends BaseApiController<MedicineDkListene
      */
     @Override
     public void updateCallback(Object callbackObject) {
-        MedicineDkDTO medicineDkDTO = (MedicineDkDTO) callbackObject;
+        MedicineDkWithIdDTO medicineDkWithIdDTO = (MedicineDkWithIdDTO) callbackObject;
+        ArrayList<MedicineInfo> medicineInfos = new ArrayList<>();
+        for (MedicineDkDTO medDkDto: medicineDkWithIdDTO.getMedicineDTOs)
+        {
+            if (medDkDto.getHtmlData().length != 0)
+                medicineInfos.add(new MedicineInfo(medDkDto.getHtmlData(), medDkDto.getTitle()));
+        }
+        DrugMedicineInfo drugMedicineInfo = new DrugMedicineInfo(medicineDkWithIdDTO.identifier, medicineInfos);
         for(MedicineDkListener listener : listeners){
-            listener.update(medicineDkDTO);
+            listener.update(drugMedicineInfo);
         }
     }
 

@@ -3,16 +3,16 @@ package com.ds.nofication.Models.Backend;
 import java.util.ArrayList;
 
 public class DrugMedicineInfo {
-    private Drug drug;
+    private String drugId;
     private ArrayList<MedicineInfo> medicineInfoList;
 
-    public DrugMedicineInfo(Drug drug, ArrayList<MedicineInfo> medicineInfoList){
-        this.drug = drug;
+    public DrugMedicineInfo(String drugId, ArrayList<MedicineInfo> medicineInfoList){
+        this.drugId = drugId;
         this.medicineInfoList = medicineInfoList;
     }
 
-    public Drug getDrug() {
-        return drug;
+    public String getDrugId() {
+        return drugId;
     }
 
     public ArrayList<MedicineInfo> getMedicineInfoList() {

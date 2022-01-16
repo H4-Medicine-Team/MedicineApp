@@ -11,7 +11,7 @@ import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import com.ds.nofication.ConfigLoader;
 import com.ds.nofication.Interfaces.Callbackable;
-import com.ds.nofication.Models.Backend.MedicineDkDTO;
+import com.ds.nofication.Models.Backend.MedicineDkWithIdDTO;
 import com.google.gson.Gson;
 
 public class MedicineDkCaller implements Response.Listener, Response.ErrorListener {
@@ -26,9 +26,9 @@ public class MedicineDkCaller implements Response.Listener, Response.ErrorListen
      *  Sends get request to endpoint
      * @param context Activity Context
      */
-    public void createCall(Context context, String drugId){
-        String medicineDkGetUrl = new ConfigLoader().getConfigValue(context,"medicineDkGet_url");
-        String url = medicineDkGetUrl + "?drugId=" + drugId;
+    public void createCall(Context context, String identifier){
+        String medicineDkGetWithIdUrl = new ConfigLoader().getConfigValue(context,"medicineDkGetWithId_url");
+        String url = medicineDkGetWithIdUrl + "?dliID=" + identifier;
 
         RequestQueue queue = Volley.newRequestQueue(context);
 
@@ -48,13 +48,13 @@ public class MedicineDkCaller implements Response.Listener, Response.ErrorListen
         Gson gson = new Gson();
         try{
 
-            MedicineDkDTO medicineDkDTO = gson.fromJson(response.toString(), MedicineDkDTO.class);
+            MedicineDkWithIdDTO medicineDkWithIdDTO = gson.fromJson(response.toString(), MedicineDkWithIdDTO.class);
 
             if(medicineDkCallback == null){
                 throw new Exception("medicineDk callback is null");
             }
 
-            medicineDkCallback.updateCallback(medicineDkDTO);
+            medicineDkCallback.updateCallback(medicineDkWithIdDTO);
 
         }catch (Exception e){
             Log.e("MedicineDkCaller", "Response: " + response.toString());
