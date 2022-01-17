@@ -12,7 +12,7 @@ public class DrugMedication {
     /**
      * The list of dosages for this medication.
      */
-    private ArrayList<Dosage> dosage;
+    private ArrayList<Dosage> dosages;
 
     /**
      * The description of the drug.
@@ -30,13 +30,13 @@ public class DrugMedication {
     private BeginEndDate beginEndDate;
 
     public DrugMedication(ArrayList<Dosage> dosages, Drug drug, String identifier, BeginEndDate beginEndDate){
-        this.dosage = dosages;
+        this.dosages = dosages;
         this.drug = drug;
         this.identifier = identifier;
         this.beginEndDate = beginEndDate;
     }
 
-    public ArrayList<Dosage> getDosage() { return dosage; }
+    public ArrayList<Dosage> getDosages() { return dosages; }
 
     public Drug getDrug() {
         return drug;
@@ -56,14 +56,14 @@ public class DrugMedication {
         Dosage newest = null;
         double timeBefore = 0;
 
-        for(int i = 0; i < dosage.size(); i++){
+        for(int i = 0; i < dosages.size(); i++){
             if(newest == null)
-                newest = dosage.get(i);
+                newest = dosages.get(i);
 
-            double timeToTake = ChronoUnit.SECONDS.between(dosage.get(i).getInterval().getConsumptionTime(), LocalDateTime.now());
+            double timeToTake = ChronoUnit.SECONDS.between(dosages.get(i).getInterval().getConsumptionTime(), LocalDateTime.now());
 
             if(timeToTake < timeBefore){
-                newest = dosage.get(i);
+                newest = dosages.get(i);
                 timeBefore = timeToTake;
             }
         }

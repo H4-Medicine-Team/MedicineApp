@@ -5,14 +5,14 @@ import java.util.ArrayList;
 public class MedicineCard {
 
     public MedicineCard(ArrayList<DrugMedication> drugs){
-        drugMedication = drugs;
+        drugMedications = drugs;
     }
 
     /**
      * Refers to the list of medication the patient has.
      */
-    private ArrayList<DrugMedication> drugMedication;
+    private ArrayList<DrugMedication> drugMedications;
     public ArrayList<DrugMedication> getDrugMedications(){
-        return drugMedication;
+        return drugMedications;
     }
 }
