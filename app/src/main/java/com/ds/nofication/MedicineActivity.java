@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
+<<<<<<< HEAD
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
@@ -75,6 +76,12 @@ import java.util.stream.Stream;
 
 public class MedicineActivity extends AppCompatActivity implements ReminderListener {
     String id = "my_channel_01";
+    ReminderApiController reminderController;
+    ExpandableListView expandableListView;
+    MedicineListAdapter medicineListAdapter;
+    List<DrugMedication> expandableDrugMedications;
+    HashMap<DrugMedication, List<Dosage>> drugMedicationListHashMap;
+>>>>>>> Development
 
     DrawerLayout drawer;
     Toolbar toolbar;
@@ -94,6 +101,7 @@ public class MedicineActivity extends AppCompatActivity implements ReminderListe
         ConfigLoader cl = new ConfigLoader();
         String configVal = cl.getConfigValue(this.getBaseContext(), "api_url");
 
+<<<<<<< HEAD
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.addDrawerListener(toggle);
         toggle.syncState();
@@ -110,6 +118,20 @@ public class MedicineActivity extends AppCompatActivity implements ReminderListe
      * This method is called when the back button on the phone is pressed.
      * Closes the menu if open else exits the app.
      */
+=======
+        Log.e(Tag, configVal);
+
+        expandableListView = (ExpandableListView) findViewById(R.id.expandableListView);
+
+        reminderController = new ReminderApiController();
+        reminderController.addListener(this);
+
+        reminderController.requestReminders(this.getBaseContext(), "12345678912");
+
+    }
+
+    @RequiresApi(api = Build.VERSION_CODES.O)
+>>>>>>> Development
     @Override
     public void onBackPressed() {
         if (drawer.isDrawerOpen(GravityCompat.START)) {
@@ -120,11 +142,15 @@ public class MedicineActivity extends AppCompatActivity implements ReminderListe
         }
     }
 
+<<<<<<< HEAD
     /**
      *This method runs when a menu item has been clicked, it navigates to the view linked with the item.
      * @param item the menu item that has been clicked
      * @return we want this to return true since that tell our app that a menu item has been selected.
      */
+=======
+
+>>>>>>> Development
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()){
@@ -151,4 +177,8 @@ public class MedicineActivity extends AppCompatActivity implements ReminderListe
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
+
+
+
+
 }

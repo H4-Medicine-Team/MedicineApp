@@ -4,10 +4,14 @@ import android.content.Context;
 
 import com.ds.nofication.Listeners.ReminderListener;
 import com.ds.nofication.Models.Backend.MedicineCard;
+<<<<<<< HEAD
 import com.ds.nofication.Callers.ReminderListCaller;
+=======
+import com.ds.nofication.ReminderListCaller;
 import java.text.ParseException;
 import java.util.ArrayList;
 import com.ds.nofication.Services.ReminderListCaller;
+>>>>>>> Development
 
 public class ReminderApiController extends BaseApiController<ReminderListener> {
 
