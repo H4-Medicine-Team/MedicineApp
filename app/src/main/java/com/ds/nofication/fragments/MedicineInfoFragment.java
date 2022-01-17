@@ -33,14 +33,8 @@ import java.util.HashMap;
  * create an instance of this fragment.
  */
 public class MedicineInfoFragment extends Fragment implements MedicineDkListener, ReminderListener {
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
 
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
+
     private MedicineDkApiController medicineDkController;
     private ReminderApiController reminderController;
     private HashMap<String, ArrayList<MedicineInfo>> medicineInfoViewData;
@@ -55,14 +49,12 @@ public class MedicineInfoFragment extends Fragment implements MedicineDkListener
 
     /**
      * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
+     * this fragment, can add parameters if you wanna recieve data
+     * from the activity creating this fragment
      * @return A new instance of fragment MedicineInfoFragment.
      */
     public static MedicineInfoFragment newInstance() {
         MedicineInfoFragment fragment = new MedicineInfoFragment();
-        Bundle args = new Bundle();
-        fragment.setArguments(args);
         return fragment;
     }
 
@@ -71,10 +63,7 @@ public class MedicineInfoFragment extends Fragment implements MedicineDkListener
         super.onCreate(savedInstanceState);
         medicineInfoViewData = new HashMap<>();
         drugs = new ArrayList<>();
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
+
         reminderController = new ReminderApiController();
         reminderController.addListener(this);
         medicineDkController = new MedicineDkApiController();
@@ -94,7 +83,13 @@ public class MedicineInfoFragment extends Fragment implements MedicineDkListener
         return parent;
     }
 
-
+    /**
+     * Makes a new custom view for medicine info
+     * @param inflater the inflater
+     * @param container the container
+     * @param title the title used in the view
+     * @return CustomMedicineInfoExpList the custom view
+     */
     private CustomMedicineInfoExpList MakeDrugMedicineInfoViewParent(LayoutInflater inflater, ViewGroup container, String title) {
         CustomMedicineInfoExpList medicineInfoTitleView = (CustomMedicineInfoExpList) inflater.inflate(R.layout.medicine_info_list_group, container, false);
 
@@ -106,6 +101,13 @@ public class MedicineInfoFragment extends Fragment implements MedicineDkListener
         return medicineInfoTitleView;
     }
 
+    /**
+     * Makes a new custom view for medicine info
+     * @param inflater the inflater
+     * @param container the container
+     * @param title the title used in the view
+     * @return CustomMedicineInfoExpList the custom view
+     */
     private CustomMedicineInfoExpList MakeDrugMedicineInfoViewChild(LayoutInflater inflater, ViewGroup container, String title) {
         CustomMedicineInfoExpList medicineInfoTitleView = (CustomMedicineInfoExpList) inflater.inflate(R.layout.medicine_info_list_group, container, false);
         medicineInfoTitleView.setLayoutParams(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
@@ -117,8 +119,14 @@ public class MedicineInfoFragment extends Fragment implements MedicineDkListener
         return medicineInfoTitleView;
     }
 
+    /**
+     * Adds a new textview for medicine info
+     * @param inflater the inflater
+     * @param container the container
+     * @param title the title used in the view
+     * @return TextView the text view
+     */
     private TextView MakeDrugMedicineInfoViewChildDescription(LayoutInflater inflater, ViewGroup container, String title) {
-
         TextView t = (TextView) inflater.inflate(R.layout.medicine_list_info_description_child, container, false);
         t.setText(title);
         return t;
