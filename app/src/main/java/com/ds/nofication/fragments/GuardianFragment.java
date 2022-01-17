@@ -29,7 +29,6 @@ public class GuardianFragment extends Fragment {
      *
      * @return A new instance of fragment GuardianFragment.
      */
-    // TODO: Rename and change types and number of parameters
     public static GuardianFragment newInstance() {
         GuardianFragment fragment = new GuardianFragment();
         return fragment;
