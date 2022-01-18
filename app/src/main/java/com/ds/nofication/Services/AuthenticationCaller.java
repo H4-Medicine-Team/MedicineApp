@@ -10,6 +10,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import com.ds.nofication.Interfaces.Callbackable;
+import com.ds.nofication.Models.Backend.Token;
 import com.ds.nofication.Models.Backend.UserAuthentication;
 import com.google.gson.Gson;
 
@@ -91,7 +92,9 @@ public class AuthenticationCaller implements Response.Listener, Response.ErrorLi
     @Override
     public void onResponse(Object response) {
         try{
-            _callback.updateCallback(response);
+
+            Token token = new Gson().fromJson(response.toString(), Token.class);
+            _callback.updateCallback(token);
         }
         catch(Exception e){
             Log.e("auth", e.toString());

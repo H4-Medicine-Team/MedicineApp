@@ -12,6 +12,7 @@ import android.widget.TextView;
 
 import com.ds.nofication.Controllers.AuthenticationController;
 import com.ds.nofication.Listeners.AuthenticationListenAble;
+import com.ds.nofication.Models.Backend.Token;
 import com.ds.nofication.Models.Backend.UserAuthentication;
 import com.ds.nofication.Security.SecurityHandler;
 
@@ -37,9 +38,9 @@ public class SignInMitId extends AppCompatActivity implements AuthenticationList
     }
 
     @Override
-    public void onLogin(String token) {
+    public void onLogin(Token token) {
         String key = _config.getConfigValue(getBaseContext(), "token_storage_key");
-        _storageHandler.write(key, token);
+        _storageHandler.write(key, token.getKey());
 
         startActivity(new Intent(SignInMitId.this, MedicineActivity.class));
     }

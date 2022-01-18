@@ -4,6 +4,7 @@ import android.content.Context;
 
 import com.ds.nofication.ConfigLoader;
 import com.ds.nofication.Listeners.AuthenticationListenAble;
+import com.ds.nofication.Models.Backend.Token;
 import com.ds.nofication.Models.Backend.UserAuthentication;
 import com.ds.nofication.Services.AuthenticationCaller;
 
@@ -39,7 +40,7 @@ public class AuthenticationController extends BaseApiController<AuthenticationLi
     @Override
     public void updateCallback(Object update) {
         for (AuthenticationListenAble listener : listeners)
-            listener.onLogin((String) update);
+            listener.onLogin((Token) update);
     }
 
     /**
