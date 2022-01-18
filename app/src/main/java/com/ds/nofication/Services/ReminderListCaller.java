@@ -1,9 +1,4 @@
-<<<<<<< HEAD:app/src/main/java/com/ds/nofication/Callers/ReminderListCaller.java
-package com.ds.nofication.Callers;
-=======
 package com.ds.nofication.Services;
->>>>>>> Development:app/src/main/java/com/ds/nofication/Services/ReminderListCaller.java
-
 import android.content.Context;
 import android.nfc.Tag;
 import android.os.Build;

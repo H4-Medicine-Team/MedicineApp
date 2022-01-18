@@ -2,7 +2,7 @@ package com.ds.nofication.Controllers;
 
 import android.content.Context;
 
-import com.ds.nofication.Callers.MedicineDkCaller;
+import com.ds.nofication.Services.MedicineDkCaller;
 import com.ds.nofication.Listeners.MedicineDkListener;
 import com.ds.nofication.Models.Backend.DrugMedicineInfo;
 import com.ds.nofication.Models.Backend.MedicineDkDTO;
@@ -10,7 +10,6 @@ import com.ds.nofication.Models.Backend.MedicineDkWithIdDTO;
 import com.ds.nofication.Models.Backend.MedicineInfo;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class MedicineDkApiController extends BaseApiController<MedicineDkListener> {
 
@@ -22,25 +21,6 @@ public class MedicineDkApiController extends BaseApiController<MedicineDkListene
     public void requestGetMedicine(Context context, String identifier){
         MedicineDkCaller caller = new MedicineDkCaller(this);
         caller.createCall(context, identifier);
-    }
-
-
-    /**
-     * Adds listeners to MedicineDk listeners
-     * @param _o MedicineDkListener
-     */
-    @Override
-    public void addListener(Object _o) {
-        MedicineDkListener mDkl = (MedicineDkListener) _o;
-        listeners.add(mDkl);
-    }
-    /**
-     * Removes listeners from MedicineDk listeners
-     * @param _o MedicineDkListener
-     */
-    @Override
-    public void removeListener(Object _o) {
-        listeners.remove(_o);
     }
 
     /**
@@ -71,5 +51,24 @@ public class MedicineDkApiController extends BaseApiController<MedicineDkListene
         for(MedicineDkListener listener : listeners){
             listener.errorUpdate(errorMessage);
         }
+    }
+
+    /**
+     * Adds listeners to MedicineDk listeners
+     * @param _o MedicineDkListener
+     */
+    @Override
+    public void addListener(MedicineDkListener _o) {
+        listeners.add(_o);
+    }
+
+    /**
+     * Removes listeners from MedicineDk listeners
+     * @param _o MedicineDkListener
+     */
+
+    @Override
+    public void removeListener(MedicineDkListener _o) {
+        listeners.remove(_o);
     }
 }

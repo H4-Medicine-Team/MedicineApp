@@ -155,7 +155,6 @@ public class MedicineInfoFragment extends Fragment implements MedicineDkListener
     public void update(MedicineCard medicineCard) {
         for (DrugMedication drugMed : medicineCard.getDrugMedications()) {
             drugs.add(drugMed.getDrug());
-            Log.e("DrugMed", drugMed.getIdentifier() + " drug" + drugMed.getDrug().getIdentifier());
             medicineDkController.requestGetMedicine(getContext(), drugMed.getDrug().getIdentifier());
         }
     }

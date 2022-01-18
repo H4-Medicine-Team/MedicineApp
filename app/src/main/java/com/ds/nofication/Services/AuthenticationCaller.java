@@ -1,6 +1,7 @@
 package com.ds.nofication.Services;
 
 import android.content.Context;
+import android.util.Log;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -37,7 +38,7 @@ public class AuthenticationCaller implements Response.Listener, Response.ErrorLi
 
         try {
             String jsonStr = new Gson().toJson(authInfo);
-            JsonObjectRequest request = CreatePostJsonObject("/login/login", jsonStr);
+            JsonObjectRequest request = CreatePostJsonObject("user/login", jsonStr);
 
             queue.add(request);
         }
@@ -89,6 +90,11 @@ public class AuthenticationCaller implements Response.Listener, Response.ErrorLi
      */
     @Override
     public void onResponse(Object response) {
-        _callback.updateCallback(response);
+        try{
+            _callback.updateCallback(response);
+        }
+        catch(Exception e){
+            Log.e("auth", e.toString());
+        }
     }
 }
