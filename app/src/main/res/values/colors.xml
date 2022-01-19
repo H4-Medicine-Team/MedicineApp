@@ -11,6 +11,7 @@
     <color name="secondaryColor">#f85f6a</color>
     <color name="tertiaryColor">#b70f0a</color>
     <color name="boxBackgroundColor">#f7f6f6</color>
+    <color name="descriptionBackgroundColor">#edebeb</color>
     <color name="medGreen">#ABFAA9</color>
     <color name="dosageGreen">#82D173</color>
     <color name="fieldLabel">#BC1C31</color>

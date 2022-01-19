@@ -2,7 +2,7 @@
     android:id="@+id/expandedMedicineInfoDescription"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@drawable/dosage_background"
+    android:background="@drawable/description_background"
     android:orientation="horizontal"
     android:paddingLeft="?android:attr/expandableListPreferredChildPaddingLeft"
     android:paddingTop="15dp"

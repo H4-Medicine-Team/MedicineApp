@@ -45,7 +45,7 @@ public class CustomMedicineInfoExpList extends LinearLayout {
         addView(title);
 
         scroll = new ScrollView(context);
-        scroll.setVisibility(INVISIBLE);
+        scroll.setVisibility(GONE);
         scroll.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
         addView(scroll);
 
@@ -114,7 +114,7 @@ public class CustomMedicineInfoExpList extends LinearLayout {
         if (expanded)
             scroll.setVisibility(VISIBLE);
         else
-            scroll.setVisibility(INVISIBLE);
+            scroll.setVisibility(GONE);
     }
 
     public void setTitle(TextView text) {
