@@ -134,6 +134,7 @@ public class MedicineInfoFragment extends Fragment implements MedicineDkListener
 
     @Override
     public void update(DrugMedicineInfo drugMedicineInfo) {
+        medicineInfoViewData = new HashMap<>();
         for (Drug drug : drugs) {
             if (drug.getIdentifier().equals(drugMedicineInfo.getDrugId())) {
                 medicineInfoViewData.put(drug.getName(), drugMedicineInfo.getMedicineInfoList());
